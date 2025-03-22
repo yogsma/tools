@@ -1,0 +1,39 @@
+{
+  "name": "nodejs-stream",
+  "version": "1.0.0",
+  "description": "Node.js application that processes large employee data files using streams and stores data in PostgreSQL",
+  "main": "src/index.js",
+  "scripts": {
+    "setup": "node setup.js",
+    "start": "node src/index.js",
+    "generate-data": "node scripts/generateTestData.js",
+    "generate-small": "node scripts/generateTestData.js 1000 10 ./data/employees_small.csv",
+    "generate-medium": "node scripts/generateTestData.js 10000 10 ./data/employees_medium.csv",
+    "generate-large": "node scripts/generateTestData.js 100000 10 ./data/employees_large.csv",
+    "process-small": "node src/index.js ./data/employees_small.csv",
+    "process-medium": "node src/index.js ./data/employees_medium.csv",
+    "process-large": "node src/index.js ./data/employees_large.csv",
+    "setup-db": "createdb employee_db || echo 'Database may already exist'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "streams",
+    "data-processing",
+    "postgres",
+    "backpressure",
+    "memory-optimization"
+  ],
+  "author": "Yogesh Mali",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.11.0",
+    "cli-progress": "^3.12.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.3.1",
+    "lodash": "^4.17.21",
+    "pg": "^8.11.3"
+  }
+}
